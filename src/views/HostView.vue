@@ -1,13 +1,16 @@
-<template>
-
-</template>
-
-<script>
-export default {
-  name: "HostView"
-}
+<script setup lang="ts">
+import Timer from '../components/Timer.vue';
 </script>
 
+<template>
+    <Timer></Timer>
+</template>
+
+<script lang="ts">
+export default {
+
+}
+</script>
 <style scoped>
 
 </style>
