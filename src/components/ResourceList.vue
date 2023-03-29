@@ -1,8 +1,10 @@
 <template>
     <div class="resource-list">
+        <h1>Resources</h1>
         <div v-for="(resource, index) in resources" :key="index" class="resource">
-            <span class="name">{{ resource.name }}</span>
-            <span class="quantity">{{ resource.quantity }}</span>
+            <a>
+                {{ resource.name }}: {{ resource.quantity }}
+            </a>
         </div>
     </div>
 </template>
@@ -18,23 +20,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-.resource-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-.resource {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-    padding: 4px 8px;
-    background-color: #eee;
-    border-radius: 4px;
-}
-.name {
-    margin-right: 8px;
-    font-weight: bold;
-}
-</style>

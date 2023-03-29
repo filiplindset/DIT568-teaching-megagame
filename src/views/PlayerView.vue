@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import ResourceList from 'src/components/ResourceList.vue'
+import ResourceList from "@/components/ResourceList.vue";
 
 export default {
     name: 'PlayerView',

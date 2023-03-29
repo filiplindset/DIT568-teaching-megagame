@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import StartView from './views/StartView.vue'
+//import StartView from './views/StartView.vue'
+import PlayerView from './views/PlayerView.vue'
 
 </script>
 
 <template>
     <div id="app">
-        <start-view />
+        <player-view />
     </div>
 </template>
 
