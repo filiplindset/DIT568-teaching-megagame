@@ -1,3 +1,4 @@
+
 <template>
     <div class="start-view">
         <h1>A Teaching Megagame</h1>
