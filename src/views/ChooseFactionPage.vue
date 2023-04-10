@@ -1,15 +1,24 @@
 <template>
     <main id="choosefaction">
-        <p v-for="faction in factions" :key="faction.id">{{ faction.name }},{{ faction.info }}</p>
-        
+        <section class="factions">
+            <Faction 
+            v-for="faction in factions" 
+            :key="faction.id" 
+            :faction="faction"
+            />
+        </section>
     </main>
-
 </template>
 
 <script lang="ts">
 import factionInfo from "..//assets/factions.json"
+import Faction from "..//components/Faction.vue"
+
 
 export default {
+    components: {
+        Faction
+    },
     data() {
         return {factions: factionInfo}
     }
@@ -24,4 +33,5 @@ export default {
 main{
     background-color: white;
 }
+
 </style>
