@@ -13,8 +13,28 @@ body {
 .player-view{
   color: darkturquoise;
   font-family: Arial, sans-serif;
+  text-align: center;
 }
 .resource-list{
   color: darkturquoise;
   font-family: Arial, sans-serif;
+}
+
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.grid-item {
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
+}
+
+.selected {
+  background-color: lightseagreen;
+  color: white;
 }
