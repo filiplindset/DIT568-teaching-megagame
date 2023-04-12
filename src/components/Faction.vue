@@ -40,7 +40,7 @@ button{
 
     .faction {
       flex: 1 1 33.333%;
-      width: 100%;
+      width:100%;
       padding: 25px;  
     }
     .faction-inner {
