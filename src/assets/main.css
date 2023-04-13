@@ -20,12 +20,6 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.item-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-}
-
 .grid-item {
   padding: 10px;
   border: 1px solid #ccc;
@@ -37,4 +31,13 @@ body {
 .selected {
   background-color: lightseagreen;
   color: white;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 122px);
+  grid-gap: 5px;
+  justify-content: center;
+  align-items: center;
+
 }

@@ -5,6 +5,7 @@
                 {{ item.name }}
             </div>
         </div>
+        <button @click="confirmSelection">Confirm Selection</button>
     </div>
 </template>
 
