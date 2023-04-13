@@ -9,3 +9,35 @@ body {
 
   text-align: center;
 }
+
+.player-view{
+  color: darkturquoise;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+.resource-list{
+  color: darkturquoise;
+  font-family: Arial, sans-serif;
+}
+
+.grid-item {
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
+}
+
+.selected {
+  background-color: lightseagreen;
+  color: white;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 122px);
+  grid-gap: 5px;
+  justify-content: center;
+  align-items: center;
+
+}

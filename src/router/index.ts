@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HostView from "@/views/HostView.vue";
-import MainPage from '@/views/MainPage.vue';
+import StartView from '@/views/StartView.vue';
+import PlayerView from '@/views/PlayerView.vue'
 import ChooseFactionPageVue from "@/views/ChooseFactionPage.vue";
 
 const router = createRouter({
@@ -9,12 +10,17 @@ const router = createRouter({
         {
             path: "/",
             name: "home",
-            component: ChooseFactionPageVue,
+            component: StartView,
         },
         {
             path: "/host",
             name: "host",
             component: HostView,
+        },
+        {
+            path: "/player",
+            name: "player",
+            component: PlayerView
         }
     ],
 });
