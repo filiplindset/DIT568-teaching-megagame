@@ -1,74 +1,175 @@
 <template>
   <div class="timer">
-    <div class="timer-display">{{ formatTime(time) }}</div>
+    <div class="timer-inputs">
+      <div class="input-group">
+        <button class="btn btn-secondary" @click="decrementMinutes">-</button>
+        <input type="number" v-model="minutes" min="0" max="59">
+        <button class="btn btn-secondary" @click="incrementMinutes">+</button>
+      </div>
+      <div class="input-group">
+        <button class="btn btn-secondary" @click="decrementSeconds">-</button>
+        <input type="number" v-model="seconds" min="0" max="59">
+        <button class="btn btn-secondary" @click="incrementSeconds">+</button>
+      </div>
+    </div>
     <div class="timer-controls">
-      <button @click="start">Start</button>
-      <button @click="pause">Pause</button>
-      <button @click="reset">Reset</button>
+      <button class="btn btn-primary" @click="startTimer" :disabled="timerRunning">Start</button>
+      <button class="btn btn-danger" @click="stopTimer" :disabled="!timerRunning && !timerEnded">Stop</button>
+      <button class="btn btn-secondary" @click="resetTimer" :disabled="!timerRunning && !timerEnded">Reset</button>
+    </div>
+    <div class="timer-display" :class="{ ended: timerEnded }">
+      {{ minutesRemaining }}:{{ secondsRemaining }}
     </div>
   </div>
 </template>
+
+<style>
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.timer-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.timer-label {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.timer-input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.timer-input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.timer-input {
+  border: none;
+  font-size: 24px;
+  padding: 5px 10px;
+  width: 60px;
+  text-align: center;
+}
+
+.timer-button {
+  background-color: #6d6d6d;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+.timer-unit {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.timer-display-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.timer-text {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+</style>
 
 <script>
 export default {
   data() {
     return {
-      time: 0,
-      intervalId: null,
+      minutes: 0,
+      seconds: 0,
+      timerRunning: false,
+      timerEnded: false,
+      intervalId: null
     };
   },
+  computed: {
+    minutesRemaining() {
+      return this.minutes < 10 ? `0${this.minutes}` : this.minutes;
+    },
+    secondsRemaining() {
+      return this.seconds < 10 ? `0${this.seconds}` : this.seconds;
+    }
+  },
   methods: {
-    start() {
-      if (!this.intervalId) {
+    decrementMinutes() {
+      if (this.minutes > 0) {
+        this.minutes--;
+      }
+    },
+    incrementMinutes() {
+      this.minutes++;
+    },
+    decrementSeconds() {
+      if (this.seconds > 0) {
+        this.seconds--;
+      }
+    },
+    incrementSeconds() {
+      if (this.seconds < 59) {
+        this.seconds++;
+      } else {
+        this.seconds = 0;
+        this.incrementMinutes();
+      }
+    },
+    startTimer() {
+      if (this.minutes > 0 || this.seconds > 0) {
+        this.timerRunning = true;
         this.intervalId = setInterval(() => {
-          this.time += 1;
+          if (this.seconds > 0) {
+            this.seconds--;
+          } else if (this.minutes > 0) {
+            this.minutes--;
+            this.seconds = 59;
+          } else {
+            clearInterval(this.intervalId);
+            this.timerEnded = true;
+            this.timerRunning = false;
+          }
         }, 1000);
       }
     },
-    pause() {
+    stopTimer() {
       clearInterval(this.intervalId);
-      this.intervalId = null;
+      this.timerRunning = false;
     },
-    reset() {
-      this.pause();
-      this.time = 0;
-    },
-    formatTime(time) {
-      const minutes = Math.floor(time / 60);
-      const seconds = time % 60;
-      return `${minutes.toString().padStart(2, "0")}:${seconds
-          .toString()
-          .padStart(2, "0")}`;
-    },
-  },
+    resetTimer() {
+      clearInterval(this.intervalId);
+      this.minutes = 0;
+      this.seconds = 0;
+      this.timerRunning = false;
+      this.timerEnded = false;
+    }
+  }
 };
 </script>
-
-<style>
-.timer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.timer-display {
-  font-size: 2em;
-  margin-bottom: 1em;
-}
-
-.timer-controls button {
-  margin: 0.5em;
-  padding: 0.5em 1em;
-  font-size: 1em;
-  border-radius: 0.5em;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-}
-
-.timer-controls button:hover {
-  background-color: #0056b3;
-}
-</style>
