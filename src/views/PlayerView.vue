@@ -9,6 +9,7 @@
 <script>
 import ResourceList from "@/components/ResourceList.vue";
 import TeamSelect from "@/components/TeamSelect.vue";
+import Resources from "@/assets/resources.json";
 
 export default {
     name: 'PlayerView',

@@ -5,7 +5,16 @@
         "color": "orange",
         "info": "The cute little orange people",
         "text": "hi there!",
-        "img": "src/assets/images/orangelons.png"
+        "img": "src/assets/images/orangelons.png",
+        "resources":[
+            {
+                "wood":10,
+                "stone":5,
+                "iron":2,
+                "gold":1
+
+            }
+        ]
     },
     {
         "id": 1,
@@ -13,7 +22,16 @@
         "color": "orange",
         "info": "The cute little orange people",
         "text": "hi there!",
-        "img": "src/assets/images/orangelons.png"
+        "img": "src/assets/images/orangelons.png",
+        "resources":[
+            {
+                "wood":10,
+                "stone":5,
+                "iron":2,
+                "gold":1
+
+            }
+        ]
     },
     {
         "id": 2,
@@ -21,7 +39,16 @@
         "color": "orange",
         "info": "The cute little orange people",
         "text": "hi there!",
-        "img": "src/assets/images/orangelons.png"
+        "img": "src/assets/images/orangelons.png",
+        "resources":[
+            {
+                "wood":10,
+                "stone":5,
+                "iron":2,
+                "gold":1
+
+            }
+        ]
     },
     {
         "id": 3,
@@ -29,7 +56,16 @@
         "color": "orange",
         "info": "The cute little orange people",
         "text": "hi there!",
-        "img": "src/assets/images/orangelons.png"
+        "img": "src/assets/images/orangelons.png",
+        "resources":[
+            {
+                "wood":10,
+                "stone":5,
+                "iron":2,
+                "gold":1
+
+            }
+        ]
     },
     {
         "id": 4,
@@ -37,7 +73,16 @@
         "color": "orange",
         "info": "The cute little orange people",
         "text": "hi there!",
-        "img": "src/assets/images/orangelons.png"
+        "img": "src/assets/images/orangelons.png",
+        "resources":[
+            {
+                "wood":10,
+                "stone":5,
+                "iron":2,
+                "gold":1
+
+            }
+        ]
     },
     {
         "id": 5,
@@ -45,7 +90,16 @@
         "color": "orange",
         "info": "The cute little orange people",
         "text": "hi there!",
-        "img": "src/assets/images/orangelons.png"
+        "img": "src/assets/images/orangelons.png",
+        "resources":[
+            {
+                "wood":10,
+                "stone":5,
+                "iron":2,
+                "gold":1
+
+            }
+        ]
     },
     {
         "id": 6,
@@ -53,7 +107,16 @@
         "color": "orange",
         "info": "The cute little orange people",
         "text": "hi there!",
-        "img": "src/assets/images/orangelons.png"
+        "img": "src/assets/images/orangelons.png",
+        "resources":[
+            {
+                "wood":10,
+                "stone":5,
+                "iron":2,
+                "gold":1
+
+            }
+        ]
     },
     {
         "id": 7,
@@ -61,7 +124,16 @@
         "color": "orange",
         "info": "The cute little orange people",
         "text": "hi there!",
-        "img": "src/assets/images/orangelons.png"
+        "img": "src/assets/images/orangelons.png",
+        "resources":[
+            {
+                "wood":10,
+                "stone":5,
+                "iron":2,
+                "gold":1
+
+            }
+        ]
     },
     {
         "id": 8,
@@ -69,7 +141,16 @@
         "color": "orange",
         "info": "The cute little orange people",
         "text": "hi there!",
-        "img": "src/assets/images/orangelons.png"
+        "img": "src/assets/images/orangelons.png",
+        "resources":[
+            {
+                "wood":10,
+                "stone":5,
+                "iron":2,
+                "gold":1
+
+            }
+        ]
     },
     {
         "id": 9,
@@ -77,7 +158,16 @@
         "color": "orange",
         "info": "The cute little orange people",
         "text": "hi there!",
-        "img": "src/assets/images/orangelons.png"
+        "img": "src/assets/images/orangelons.png",
+        "resources":[
+            {
+                "wood":10,
+                "stone":5,
+                "iron":2,
+                "gold":1
+
+            }
+        ]
     },
     {
         "id": 10,
@@ -85,7 +175,16 @@
         "color": "orange",
         "info": "The cute little orange people",
         "text": "hi there!",
-        "img": "src/assets/images/orangelons.png"
+        "img": "src/assets/images/orangelons.png",
+        "resources":[
+            {
+                "wood":10,
+                "stone":5,
+                "iron":2,
+                "gold":1
+
+            }
+        ]
     }
 
 ]

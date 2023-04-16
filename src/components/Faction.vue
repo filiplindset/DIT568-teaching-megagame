@@ -2,6 +2,7 @@
     
     <div class="faction">
         <button>
+            <router-link to="/player" class="link">
         <div class="faction-inner">
             
             <div class="faction-text-wrap">
@@ -16,6 +17,7 @@
             </div>
         
         </div>
+    </router-link>
     </button>
     </div>
 
@@ -39,7 +41,6 @@ button{
     }
 
     .faction {
-      flex: 1 1 33.333%;
       width:100%;
       padding: 25px;  
     }
@@ -51,5 +52,10 @@ button{
 
     .faction-image-wrap .image {
         width:100%;
+    }
+
+    .link{
+        text-decoration: none;
+        color: black;
     }
 </style>

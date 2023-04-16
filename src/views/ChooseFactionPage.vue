@@ -1,12 +1,15 @@
 <template>
+    <h1>Please choose your faction to continue:</h1>
     <main id="choosefaction">
-        <section class="factions">
+        
+         <div class="factions">
             <Faction 
             v-for="faction in factions" 
             :key="faction.id" 
             :faction="faction"
             />
-        </section>
+         </div>
+    
     </main>
 </template>
 
@@ -34,6 +37,7 @@ export default {
     padding: 0;
     box-sizing: border-box;
 }
+
 main{
     background-color: white;
     display: flex;
@@ -44,12 +48,14 @@ main{
     min-height: 100vh;
     overflow: hidden;
 }
+
 .factions{
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1280px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
     padding: 25px;
     margin: 0 auto;
 }
+
 
 </style>

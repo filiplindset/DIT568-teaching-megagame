@@ -21,6 +21,11 @@ const router = createRouter({
             path: "/player",
             name: "player",
             component: PlayerView
+        },
+        {
+            path:"/factions",
+            name: "factions",
+            component: ChooseFactionPageVue
         }
     ],
 });
