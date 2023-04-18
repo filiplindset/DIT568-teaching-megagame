@@ -1,0 +1,112 @@
+[
+    {
+        "id":0,
+        "name":"Arboreans",
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
+    },
+    {
+        "id":1,
+        "name":"Orangelons",
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
+    },
+    {
+        "id":2,
+        "name":"Novarians",
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
+    },
+    {
+        "id":3,
+        "name":"Naxorians",
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
+    },
+    {
+        "id":4,
+        "name":"Krell",
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
+    },
+    {
+        "id":5,
+        "name":"Aquarians",
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
+    },
+    {
+        "id":6,
+        "name":"Xaraxians",
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
+    },
+    {
+        "id":7,
+        "name":"Eryndorians",
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
+    },
+    {
+        "id":8,
+        "name":"Valtorians",
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
+    },
+    {
+        "id":9,
+        "name":"Zetians",
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
+    },
+    {
+        "id":10,
+        "name":"Tethorians",
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
+    }
+]

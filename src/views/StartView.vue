@@ -4,7 +4,7 @@
         <h1>A Teaching Megagame</h1>
         <p>Get started by choosing one of the options below:</p>
         <div class="button-group">
-            <router-link to="/player" class="button primary">Player</router-link>
+            <router-link to="/factions" class="button primary">Player</router-link>
             <router-link to="/host" class="button secondary">Host</router-link>
         </div>
     </div>
