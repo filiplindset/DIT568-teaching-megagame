@@ -2,89 +2,111 @@
     {
         "id":0,
         "name":"Arboreans",
-        "wood":10,
-        "stone":5,
-        "iron":2,
-        "gold":1
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
     },
     {
         "id":0,
         "name":"Arboreans",
-        "wood":10,
-        "stone":5,
-        "iron":2,
-        "gold":1
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
     },
     {
         "id":0,
         "name":"Arboreans",
-        "wood":10,
-        "stone":5,
-        "iron":2,
-        "gold":1
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
     },
     {
         "id":0,
         "name":"Arboreans",
-        "wood":10,
-        "stone":5,
-        "iron":2,
-        "gold":1
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
     },
     {
         "id":0,
         "name":"Arboreans",
-        "wood":10,
-        "stone":5,
-        "iron":2,
-        "gold":1
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
     },
     {
         "id":0,
         "name":"Arboreans",
-        "wood":10,
-        "stone":5,
-        "iron":2,
-        "gold":1
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
     },
     {
         "id":0,
         "name":"Arboreans",
-        "wood":10,
-        "stone":5,
-        "iron":2,
-        "gold":1
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
     },
     {
         "id":0,
         "name":"Arboreans",
-        "wood":10,
-        "stone":5,
-        "iron":2,
-        "gold":1
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
     },
     {
         "id":0,
         "name":"Arboreans",
-        "wood":10,
-        "stone":5,
-        "iron":2,
-        "gold":1
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
     },
     {
         "id":0,
         "name":"Arboreans",
-        "wood":10,
-        "stone":5,
-        "iron":2,
-        "gold":1
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
     },
     {
         "id":0,
         "name":"Arboreans",
-        "wood":10,
-        "stone":5,
-        "iron":2,
-        "gold":1
+        "money": 10,
+        "gems": 2,
+        "steel": 20,
+        "wood": 15,
+        "tech": 5,
+        "energy": 8
     }
 ]
