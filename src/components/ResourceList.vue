@@ -1,6 +1,6 @@
 <template>
     <div class="resourceList">
-        <h1>ResourcListresourceList</h1>
+     
         <div klass="resource-inner">
             <h4>Money: {{ resourceList.money }}</h4>
             <h4>Gems: {{ resourceList.gems }}</h4>
@@ -21,3 +21,7 @@ export default {
     props: ['resourceList']
 }
 </script>
+
+<style>
+
+</style>

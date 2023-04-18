@@ -1,12 +1,13 @@
-<template>
-    <div>
+
+    <template>
+    <!-- <div>
         <div class="grid-container">
             <div v-for="item in items" :key="item.id" @click="selectItem(item)" :class="{ 'selected': selectedItem === item }" class="grid-item">
                 {{ item.name }}
             </div>
         </div>
         <button @click="confirmSelection">Confirm Selection</button>
-    </div>
+    </div> -->
 </template>
 
 <script lang="ts">
