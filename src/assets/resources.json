@@ -10,8 +10,8 @@
         "energy": 8
     },
     {
-        "id":0,
-        "name":"Arboreans",
+        "id":1,
+        "name":"Orangelons",
         "money": 10,
         "gems": 2,
         "steel": 20,
@@ -20,8 +20,8 @@
         "energy": 8
     },
     {
-        "id":0,
-        "name":"Arboreans",
+        "id":2,
+        "name":"Novarians",
         "money": 10,
         "gems": 2,
         "steel": 20,
@@ -30,8 +30,8 @@
         "energy": 8
     },
     {
-        "id":0,
-        "name":"Arboreans",
+        "id":3,
+        "name":"Naxorians",
         "money": 10,
         "gems": 2,
         "steel": 20,
@@ -40,8 +40,8 @@
         "energy": 8
     },
     {
-        "id":0,
-        "name":"Arboreans",
+        "id":4,
+        "name":"Krell",
         "money": 10,
         "gems": 2,
         "steel": 20,
@@ -50,8 +50,8 @@
         "energy": 8
     },
     {
-        "id":0,
-        "name":"Arboreans",
+        "id":5,
+        "name":"Aquarians",
         "money": 10,
         "gems": 2,
         "steel": 20,
@@ -60,8 +60,8 @@
         "energy": 8
     },
     {
-        "id":0,
-        "name":"Arboreans",
+        "id":6,
+        "name":"Xaraxians",
         "money": 10,
         "gems": 2,
         "steel": 20,
@@ -70,8 +70,8 @@
         "energy": 8
     },
     {
-        "id":0,
-        "name":"Arboreans",
+        "id":7,
+        "name":"Eryndorians",
         "money": 10,
         "gems": 2,
         "steel": 20,
@@ -80,8 +80,8 @@
         "energy": 8
     },
     {
-        "id":0,
-        "name":"Arboreans",
+        "id":8,
+        "name":"Valtorians",
         "money": 10,
         "gems": 2,
         "steel": 20,
@@ -90,8 +90,8 @@
         "energy": 8
     },
     {
-        "id":0,
-        "name":"Arboreans",
+        "id":9,
+        "name":"Zetians",
         "money": 10,
         "gems": 2,
         "steel": 20,
@@ -100,8 +100,8 @@
         "energy": 8
     },
     {
-        "id":0,
-        "name":"Arboreans",
+        "id":10,
+        "name":"Tethorians",
         "money": 10,
         "gems": 2,
         "steel": 20,

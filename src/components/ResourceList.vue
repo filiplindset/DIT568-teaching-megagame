@@ -1,22 +1,23 @@
 <template>
-    <div class="resource-list">
-        <h1>Resources</h1>
-        <div v-for="(resource, index) in resources" :key="index" class="resource">
-            <a>
-                {{ resource.name }}: {{ resource.quantity }}
-            </a>
+    <div class="resourceList">
+        <h1>ResourcListresourceList</h1>
+        <div klass="resource-inner">
+            <h4>Money: {{ resourceList.money }}</h4>
+            <h4>Gems: {{ resourceList.gems }}</h4>
+            <h4>Steel: {{ resourceList.steel }}</h4>
+            <h4>Wood: {{ resourceList.wood }}</h4>
+            <h4>Tech: {{ resourceList.tech }}</h4>
+            <h4>Energy: {{ resourceList.energy }}</h4>
+
         </div>
-    </div>
+
+        </div>
+    
 </template>
 
-<script>
+<script lang="ts">
 export default {
-    name: 'ResourceList',
-    props: {
-        resources: {
-            type: Array,
-            required: true
-        }
-    }
+    name: 'resourceList',
+    props: ['resourceList']
 }
 </script>
