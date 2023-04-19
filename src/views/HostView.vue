@@ -5,7 +5,7 @@ import HostSidePanel from '../components/HostSidePanel.vue'
 <template>
   <div class="container">
     <host-side-panel class="panel" @change-view="updateView"/>
-    <div>
+    <div class="active-component-wrapper">
       <component :is="activeView"></component>
     </div>
   </div>
@@ -14,10 +14,14 @@ import HostSidePanel from '../components/HostSidePanel.vue'
 <script lang="ts">
 
 import Timer from "@/components/Timer.vue";
+import ChooseFactionPage from "@/views/ChooseFactionPage.vue";
+
+const panelWidth = 50;
 
 export default {
   components: {
     Timer,
+    ChooseFactionPage
   },
   data() {
     return {
@@ -27,7 +31,14 @@ export default {
   methods: {
     updateView(viewName) {
       console.log(viewName)
-      this.activeView = viewName
+      switch (viewName) {
+        case 'timer':
+          this.activeView = Timer
+          break
+        case 'impersonate':
+          this.activeView = ChooseFactionPage
+          break
+      }
     }
   }
 
@@ -37,21 +48,37 @@ export default {
 .container {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .panel {
-  width: 50px;
-  height: 100vh;
-  background-color: #f1f1f1;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 999;
+  background-color: #f1f1f1;
+  margin: 0;
+  padding: 0;
 }
 
+.active-component-wrapper {
+  flex: 1;
+  overflow-y: auto; /* Add this property to make the element scrollable */
+  margin-left: 75px;
+}
+
+body{
+  background-color: ghostwhite;
+}
+
+
 .timer {
-  margin-left: 50px; /* Set the left margin to the same width as the side panel */
+  margin-left: 200px; /* Set the left margin to the same width as the side panel */
 }
 </style>

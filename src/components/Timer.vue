@@ -1,30 +1,31 @@
 <template>
   <div class="timer">
     <div class="timer-inputs">
-      <div class="input-group">
-        <button class="btn btn-secondary" @click="decrementMinutes">-</button>
-        <input type="number" v-model="minutes" min="0" max="59">
-        <button class="btn btn-secondary" @click="incrementMinutes">+</button>
+      <div class="timer-input-group">
+        <button class="timer-button" @click="decrementMinutes">-</button>
+        <input class="time-input" type="number" v-model="minutes" min="0" max="59">
+        <button class="timer-button" @click="incrementMinutes">+</button>
       </div>
-      <div class="input-group">
-        <button class="btn btn-secondary" @click="decrementSeconds">-</button>
-        <input type="number" v-model="seconds" min="0" max="59">
-        <button class="btn btn-secondary" @click="incrementSeconds">+</button>
+      <div class="timer-input-group">
+        <button class="timer-button" @click="decrementSeconds">-</button>
+        <input class="time-input" type="number" v-model="seconds" min="0" max="59">
+        <button class="timer-button" @click="incrementSeconds">+</button>
       </div>
     </div>
     <div class="timer-controls">
-      <button class="btn btn-primary" @click="startTimer" :disabled="timerRunning">Start</button>
-      <button class="btn btn-danger" @click="stopTimer" :disabled="!timerRunning && !timerEnded">Stop</button>
-      <button class="btn btn-secondary" @click="resetTimer" :disabled="!timerRunning && !timerEnded">Reset</button>
+      <button class="function-button start-button" @click="startTimer" :disabled="timerRunning">Start</button>
+      <button class="function-button danger-button" @click="stopTimer" :disabled="!timerRunning && !timerEnded">Stop</button>
+      <button class="function-button secondary-button" @click="resetTimer">Reset</button>
     </div>
-    <div class="timer-display" :class="{ ended: timerEnded }">
-      {{ minutesRemaining }}:{{ secondsRemaining }}
+    <div class="timer-display" :class="{ ended: timerEnded }" >
+      <span>{{ minutesRemaining }}</span>
+      <span>:</span>
+      <span>{{ secondsRemaining }}</span>
     </div>
   </div>
 </template>
-
 <style>
-.timer-container {
+.timer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,18 +33,8 @@
   height: 100%;
 }
 
-.timer-input-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.timer-inputs {
   margin-bottom: 20px;
-}
-
-.timer-label {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
 }
 
 .timer-input-group {
@@ -53,51 +44,57 @@
   margin-bottom: 10px;
 }
 
-.timer-input-wrapper {
+.timer-controls {
   display: flex;
   align-items: center;
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  margin-right: 20px;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
-.timer-input {
+.time-input {
   border: none;
-  font-size: 24px;
+  font-size: 48px;
+  font-weight: bold;
   padding: 5px 10px;
-  width: 60px;
+  width: 80px;
   text-align: center;
 }
 
 .timer-button {
-  background-color: #6d6d6d;
-  color: #fff;
+  background-color: #d1d1d1;
+  color: #000;
   border: none;
   border-radius: 50%;
-  padding: 10px;
-  font-size: 24px;
+  padding: 20px;
+  font-size: 32px;
   margin: 0 10px;
-}
-
-.timer-unit {
-  font-size: 18px;
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-.timer-display-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-.timer-text {
-  font-size: 24px;
-  font-weight: bold;
   text-align: center;
+  width: 70px;
+  height: 70px;
+}
+
+.start-button {
+  background-color: #007aff;
+  color: #fff;
+}
+
+.danger-button {
+  background-color: #ff3b30;
+  color: #fff;
+}
+
+.secondary-button {
+  background-color: #d1d1d1;
+  color: #000;
+}
+
+.function-button {
+  border-radius: 5px;
+  margin: 4px;
+}
+
+.timer-display {
+  font-size: 72px
 }
 </style>
 

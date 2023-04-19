@@ -1,15 +1,15 @@
 <template>
     <h1>Please choose your faction to continue:</h1>
     <main id="choosefaction">
-        
+
          <div class="factions">
-            <Faction 
-            v-for="faction in factions" 
-            :key="faction.id" 
+            <Faction
+            v-for="faction in factions"
+            :key="faction.id"
             :faction="faction"
             />
          </div>
-    
+
     </main>
 </template>
 
@@ -28,9 +28,9 @@ export default {
 }
 </script>
 
-<style>   
+<style>
 
-* {
+body{
     background-color: white;
 
     margin: 0;
@@ -44,7 +44,7 @@ main{
     justify-content: center;
     align-items: center;
 
-    width: 100 vw;
+    width: 100vw;
     min-height: 100vh;
     overflow: hidden;
 }
