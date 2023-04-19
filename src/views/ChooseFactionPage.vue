@@ -7,6 +7,7 @@
             v-for="faction in factions"
             :key="faction.id"
             :faction="faction"
+            @redirect-player="redirectPlayer(faction.id)"
             />
          </div>
 
@@ -19,11 +20,17 @@ import Faction from "..//components/Faction.vue"
 
 
 export default {
+    name: 'ChooseFactionPage',
     components: {
         Faction
     },
     data() {
         return {factions: factionInfo}
+    },
+    methods: {
+      redirectPlayer(factionId) {
+        this.$emit('redirect-player', factionId)
+      }
     }
 }
 </script>

@@ -1,24 +1,21 @@
 <template>
     
     <div class="faction">
-        <button>
-            <router-link to="/player" class="link">
-        <div class="faction-inner">
-            
-            <div class="faction-text-wrap">
-                <h2 class="faction-name">{{ faction.name }}</h2>
+        <button @click="redirectPlayer(faction.id)">
+            <div class="faction-inner">
 
-            </div>
-            <div class="faction-image-wrap">
-                <img :src="faction.img" class="image"/>
-            </div>
-            <div class="faction-info">
-                <h3>{{ faction.info }}</h3>
-            </div>
-        
-        </div>
-    </router-link>
-    </button>
+              <div class="faction-text-wrap">
+                  <h2 class="faction-name">{{ faction.name }}</h2>
+
+              </div>
+              <div class="faction-image-wrap">
+                  <img :src="faction.img" class="image"/>
+              </div>
+              <div class="faction-info">
+                  <h3>{{ faction.info }}</h3>
+              </div>
+              </div>
+      </button>
     </div>
 
 </template>
@@ -26,7 +23,12 @@
 
 export default {
     name: 'faction',
-    props: ['faction']
+    props: ['faction'],
+    methods: {
+      redirectPlayer(factionId) {
+        this.$emit('redirect-player', factionId)
+    }
+  }
 }
 
 </script>
