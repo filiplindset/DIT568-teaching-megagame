@@ -15,17 +15,19 @@ import HostSidePanel from '../components/HostSidePanel.vue'
 
 import Timer from "@/components/Timer.vue";
 import ChooseFactionPage from "@/views/ChooseFactionPage.vue";
+import PlayerView from "@/views/PlayerView.vue";
 
 const panelWidth = 50;
 
 export default {
   components: {
     Timer,
-    ChooseFactionPage
+    ChooseFactionPage,
+    PlayerView
   },
   data() {
     return {
-      activeView: 'timer'
+      activeView: Timer
     }
   },
   methods: {
@@ -36,7 +38,7 @@ export default {
           this.activeView = Timer
           break
         case 'impersonate':
-          this.activeView = ChooseFactionPage
+          this.activeView = PlayerView
           break
       }
     }

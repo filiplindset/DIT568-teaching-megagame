@@ -1,11 +1,13 @@
 <template>
     <div class="player-view">
         <h1>Player View</h1>
-        <h1>ResourcList</h1>
-        <ResourceList v-for="resourceList in resources"
-        :key="resourceList.id"
-        :resourceList="resourceList"
-         />
+        <div class="active-component-wrapper">
+          <component
+              :is="activeView"
+              @redirect-player="switchToResourceView"
+              :resourceList="resources[selectedFaction]"
+          />
+        </div>
     </div>
 </template>
 
@@ -13,27 +15,42 @@
 import ResourceList from "../components/ResourceList.vue";
 import TeamSelect from "../components/TeamSelect.vue";
 import Resources from "../assets/resources.json";
+import ChooseFactionPage from "@/views/ChooseFactionPage.vue";
+import resourceList from "@/components/ResourceList.vue";
+
+var selectedFaction = -1
 
 export default {
     name: 'PlayerView',
     components: {
         ResourceList,
         TeamSelect,
+        ChooseFactionPage,
         Resources
     },
     data() {
-        return {resources: Resources};
-    }
+        return {
+          resources: Resources,
+          activeView: ChooseFactionPage,
+        }
+    },
+    methods: {
+      switchToResourceView(factionId){
+        this.selectedFaction = factionId
+        console.log(this.selectedFaction)
+        this.activeView = ResourceList
 
+      }
+    }
 }
 </script>
 
 <style>
-.player-view{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 1rem;
-    padding: 25px;
-    margin: 0 auto;
+
+
+.active-component-wrapper {
+  flex: 1;
+  overflow-y: auto; /* Add this property to make the element scrollable */
+  margin-left: 75px;
 }
 </style>
