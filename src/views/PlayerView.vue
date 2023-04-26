@@ -16,7 +16,6 @@ import ResourceList from "../components/ResourceList.vue";
 import TeamSelect from "../components/TeamSelect.vue";
 import Resources from "../assets/resources.json";
 import ChooseFactionPage from "@/views/ChooseFactionPage.vue";
-import resourceList from "@/components/ResourceList.vue";
 
 var selectedFaction = -1
 
