@@ -9,6 +9,10 @@
         <img src='src/components/icons/moderation.png' @click="changeView('impersonate')"/>
         <div class="icon-text">Moderation</div>
       </div>
+      <div class="icon">
+        <img src='src/components/icons/moderation.png' @click="changeView('massEdit')"/>
+        <div class="icon-text">Mass edit</div>
+      </div>
     </div>
   </div>
 </template>
