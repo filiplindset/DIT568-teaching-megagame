@@ -16,15 +16,26 @@
 </template>
 
 <script>
-import resourcesData from "../../server/assets/resources.json";
+import axios from "axios";
+
 const resourceList = [ ["Money", 0], ["Gems", 0], ["Steel", 0], ["Wood", 0], ["Tech", 0], ["Energy", 0] ];
 
 export default {
   data() {
     return {
-      resources: resourcesData,
+      resources: {},
       resourceList: resourceList
     };
+  },
+  created() {
+    axios.get('http://127.0.0.1:8080/getPlayerResources')
+        .then(response => {
+          console.log(response.data);
+          this.resources = response.data
+        })
+        .catch(error => {
+          console.log(error);
+        });
   },
   methods: {
     incrementResource(resource) {
@@ -40,22 +51,36 @@ export default {
       console.log(resourceList)
     },
     updateResources() {
-      console.log(this.resources)
       for (var [resource, amount] of resourceList) {
         for (const faction of this.resources) {
           for(var [key, value] of Object.entries(faction)){
             if (key.toLowerCase() === resource.toLowerCase()){
-              console.log(value)
               faction[key] += amount;
-              console.log(value)
             }
           }
         }
       }
-      console.log(this.resources)
 
       // Save updated resources to localStorage or server
-      localStorage.setItem('resourcesData', JSON.stringify(this.resources));
+      axios.put('http://localhost:8080/putAllResources', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: JSON.stringify(this.resources)
+      })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+          })
+          .then(data => {
+            console.log(data);
+          })
+          .catch(error => {
+            console.error(error);
+          });
     }
   },
 };

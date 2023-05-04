@@ -1,27 +1,142 @@
 <template>
-    <div class="resourceList">
-     
-        <div klass="resource-inner">
-            <h4>Money: {{ resourceList.money }}</h4>
-            <h4>Gems: {{ resourceList.gems }}</h4>
-            <h4>Steel: {{ resourceList.steel }}</h4>
-            <h4>Wood: {{ resourceList.wood }}</h4>
-            <h4>Tech: {{ resourceList.tech }}</h4>
-            <h4>Energy: {{ resourceList.energy }}</h4>
-
+  <div>
+    <h2>Available Resources</h2>
+    <ul>
+      <li v-for="([resource, amount]) in this.resourceList " class="resource-item">
+        <span class="resource-name">{{resource}}</span>
+        <div class="resource-controls">
+          <button class="resource-button minus-button" @click="decrementResource(resource)">-</button>
+          <span class="resource-amount">{{amount}}</span>
+          <button class="resource-button plus-button" @click="incrementResource(resource)">+</button>
         </div>
-
-        </div>
-    
+      </li>
+    </ul>
+    <button @click="updateResources">Update Resources</button>
+  </div>
 </template>
 
-<script lang="ts">
+<script>
+import axios from "axios";
+
 export default {
-    name: 'resourceList',
-    props: ['resourceList']
-}
+  props: ['currentFaction'],
+  data() {
+    return {
+      resources: {},
+      resourceList: [ ["Money", 0], ["Gems", 0], ["Steel", 0], ["Wood", 0], ["Tech", 0], ["Energy", 0] ]
+    };
+  },
+  created() {
+    axios.get('http://127.0.0.1:8080/getPlayerResources')
+        .then(response => {
+          console.log(response.data);
+          for (var faction of response.data) {
+            if(faction.id === this.currentFaction) {
+              for(var i=0; i<this.resourceList.length; i++) {
+                for(var [key, value] of Object.entries(faction)) {
+                  if (this.resourceList[i][0].toLowerCase() === key.toLowerCase()) {
+                    this.resourceList[i][1] = value;
+                  }
+                }
+              }
+            }
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+  },
+  methods: {
+    incrementResource(resource) {
+      const index = this.resourceList.findIndex(([name, value]) => name === resource);
+      this.resourceList[index][1]++;
+    },
+    decrementResource(resource) {
+      const index = this.resourceList.findIndex(([name, value]) => name === resource);
+      if (this.resourceList[index][1] > 0) {
+        this.resourceList[index][1]--;
+      }
+    },
+    updateResources() {
+      console.log(this.resources)
+
+      /*for (var [resource, amount] of resourceList) {
+        for (const faction of this.resources) {
+          if (faction.id === this.currentFaction){
+            for(var [key, value] of Object.entries(faction)){
+              if (key.toLowerCase() === resource.toLowerCase()){
+                console.log(value)
+                faction[key] += amount;
+                console.log(value)
+              }
+            }
+          }
+        }
+      } */
+
+      const faction = this.resources.find(faction => faction.id === this.currentFaction);
+      if (!faction) {
+        return; // current faction not found
+      }
+
+      for (const [resource, amount] of resourceList) {
+        const key = Object.keys(faction).find(k => k.toLowerCase() === resource.toLowerCase());
+        if (key) {
+          console.log(faction[key]);
+          faction[key] += amount;
+          console.log(faction[key]);
+        }
+      }
+      console.log(this.resources)
+
+      // Save updated resources to localStorage or server
+      localStorage.setItem('resourcesData', JSON.stringify(this.resources));
+    }
+  },
+};
 </script>
 
-<style>
+<style scoped>
+.resource-item {
+  display: compact;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.resource-name {
+  flex-grow: 1;
+}
+
+.resource-controls {
+  display: flex;
+  margin-left: auto;
+}
+
+.resource-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: #f2f2f2;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+}
+
+.minus-button {
+  color: #ff8c00;
+}
+
+.plus-button {
+  color: #008000;
+}
+
+.resource-button:hover {
+  background-color: #d9d9d9;
+}
 
 </style>
