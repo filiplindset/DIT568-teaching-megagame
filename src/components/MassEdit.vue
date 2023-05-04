@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import resourcesData from "@/assets/resources.json";
+import resourcesData from "../../server/assets/resources.json";
 const resourceList = [ ["Money", 0], ["Gems", 0], ["Steel", 0], ["Wood", 0], ["Tech", 0], ["Energy", 0] ];
 
 export default {

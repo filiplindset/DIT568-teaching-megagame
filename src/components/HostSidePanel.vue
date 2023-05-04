@@ -63,7 +63,6 @@
 export default {
   data() {
     return {
-      icons: [('src/components/icons/vilt.png')]
     }
   },
   methods: {
