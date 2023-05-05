@@ -16,6 +16,7 @@ import HostSidePanel from '../components/HostSidePanel.vue'
 import Timer from "@/components/Timer.vue";
 import ChooseFactionPage from "@/views/ChooseFactionPage.vue";
 import PlayerView from "@/views/PlayerView.vue";
+import MassEdit from "@/components/MassEdit.vue";
 
 const panelWidth = 50;
 
@@ -23,7 +24,8 @@ export default {
   components: {
     Timer,
     ChooseFactionPage,
-    PlayerView
+    PlayerView,
+    MassEdit
   },
   data() {
     return {
@@ -39,6 +41,9 @@ export default {
           break
         case 'impersonate':
           this.activeView = PlayerView
+          break
+        case 'massEdit':
+          this.activeView = MassEdit
           break
       }
     }

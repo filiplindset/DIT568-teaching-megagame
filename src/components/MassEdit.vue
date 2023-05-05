@@ -2,7 +2,7 @@
   <div>
     <h2>Available Resources</h2>
     <ul>
-      <li v-for="([resource, amount]) in this.resourceList " class="resource-item">
+      <li v-for="([resource, amount]) in resourceList" class="resource-item">
         <span class="resource-name">{{resource}}</span>
         <div class="resource-controls">
           <button class="resource-button minus-button" @click="decrementResource(resource)">-</button>
@@ -18,29 +18,20 @@
 <script>
 import axios from "axios";
 
+const resourceList = [ ["Money", 0], ["Gems", 0], ["Steel", 0], ["Wood", 0], ["Tech", 0], ["Energy", 0] ];
+
 export default {
-  props: ['currentFaction'],
   data() {
     return {
       resources: {},
-      resourceList: [ ["Money", 0], ["Gems", 0], ["Steel", 0], ["Wood", 0], ["Tech", 0], ["Energy", 0] ]
+      resourceList: resourceList
     };
   },
   created() {
     axios.get('http://127.0.0.1:8080/getPlayerResources')
         .then(response => {
           console.log(response.data);
-          for (var faction of response.data) {
-            if(faction.id === this.currentFaction) {
-              for(var i=0; i<this.resourceList.length; i++) {
-                for(var [key, value] of Object.entries(faction)) {
-                  if (this.resourceList[i][0].toLowerCase() === key.toLowerCase()) {
-                    this.resourceList[i][1] = value;
-                  }
-                }
-              }
-            }
-          }
+          this.resources = response.data
         })
         .catch(error => {
           console.log(error);
@@ -50,47 +41,46 @@ export default {
     incrementResource(resource) {
       const index = this.resourceList.findIndex(([name, value]) => name === resource);
       this.resourceList[index][1]++;
+      console.log(resourceList)
     },
     decrementResource(resource) {
       const index = this.resourceList.findIndex(([name, value]) => name === resource);
       if (this.resourceList[index][1] > 0) {
         this.resourceList[index][1]--;
       }
+      console.log(resourceList)
     },
     updateResources() {
-      console.log(this.resources)
-
-      /*for (var [resource, amount] of resourceList) {
+      for (var [resource, amount] of resourceList) {
         for (const faction of this.resources) {
-          if (faction.id === this.currentFaction){
-            for(var [key, value] of Object.entries(faction)){
-              if (key.toLowerCase() === resource.toLowerCase()){
-                console.log(value)
-                faction[key] += amount;
-                console.log(value)
-              }
+          for(var [key, value] of Object.entries(faction)){
+            if (key.toLowerCase() === resource.toLowerCase()){
+              faction[key] += amount;
             }
           }
         }
-      } */
-
-      const faction = this.resources.find(faction => faction.id === this.currentFaction);
-      if (!faction) {
-        return; // current faction not found
       }
-
-      for (const [resource, amount] of resourceList) {
-        const key = Object.keys(faction).find(k => k.toLowerCase() === resource.toLowerCase());
-        if (key) {
-          console.log(faction[key]);
-          faction[key] += amount;
-          console.log(faction[key]);
-        }
-      }
-      console.log(this.resources)
 
       // Save updated resources to localStorage or server
-      localStorage.setItem('resourcesData', JSON.stringify(this.resources));
+      axios.put('http://localhost:8080/putAllResources', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: JSON.stringify(this.resources)
+      })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+          })
+          .then(data => {
+            console.log(data);
+          })
+          .catch(error => {
+            console.error(error);
+          });
     }
   },
 };

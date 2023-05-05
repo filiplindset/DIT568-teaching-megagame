@@ -5,7 +5,8 @@
           <component
               :is="activeView"
               @redirect-player="switchToResourceView"
-              :resourceList="resources[selectedFaction]"
+              :resourceList="resources[this.selectedFaction]"
+              :currentFaction="this.selectedFaction"
           />
         </div>
     </div>
@@ -14,32 +15,43 @@
 <script lang="ts">
 import ResourceList from "../components/ResourceList.vue";
 import TeamSelect from "../components/TeamSelect.vue";
-import Resources from "../assets/resources.json";
 import ChooseFactionPage from "@/views/ChooseFactionPage.vue";
 import resourceList from "@/components/ResourceList.vue";
+import axios from "axios";
 
-var selectedFaction = -1
+
+
 
 export default {
     name: 'PlayerView',
     components: {
         ResourceList,
         TeamSelect,
-        ChooseFactionPage,
-        Resources
+        ChooseFactionPage
     },
-    data() {
+
+  data() {
         return {
-          resources: Resources,
+          resources: {},
           activeView: ChooseFactionPage,
+          selectedFaction: -1
         }
     },
+  created() {
+    axios.get('http://127.0.0.1:8080/getPlayerResources')
+        .then(response => {
+          console.log(response.data);
+          this.resources = response.data
+        })
+        .catch(error => {
+          console.log(error);
+        });
+  },
     methods: {
       switchToResourceView(factionId){
         this.selectedFaction = factionId
-        console.log(this.selectedFaction)
+        console.log("Playerview: " + this.selectedFaction)
         this.activeView = ResourceList
-
       }
     }
 }
