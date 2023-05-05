@@ -58,9 +58,13 @@ app.put('/putPlayerResources', (req, res) => {
   });
 });
 
+
+/*
+Input: A full JSON-file of all factions and their resources
+Does: Replaces current resources.json with input
+*/
 app.put('/putAllResources', (req, res) => {
   const resources = req.body;
-
   fs.writeFile(resourcesJSON, JSON.stringify(resources), err => {
     if (err) {
       console.error(err);
