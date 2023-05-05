@@ -30,6 +30,7 @@ export default {
     axios.get('http://127.0.0.1:8080/getPlayerResources')
         .then(response => {
           console.log(response.data);
+          this.resources = response.data;
           for (var faction of response.data) {
             if(faction.id === this.currentFaction) {
               for(var i=0; i<this.resourceList.length; i++) {
@@ -58,39 +59,31 @@ export default {
       }
     },
     updateResources() {
-      console.log(this.resources)
 
-      /*for (var [resource, amount] of resourceList) {
+      for (var [resource, amount] of this.resourceList) {
         for (const faction of this.resources) {
+            console.log("faction: " + faction)
           if (faction.id === this.currentFaction){
             for(var [key, value] of Object.entries(faction)){
               if (key.toLowerCase() === resource.toLowerCase()){
-                console.log(value)
-                faction[key] += amount;
-                console.log(value)
+                console.log(key, value)
+                faction[key] = amount;
               }
             }
           }
         }
-      } */
-
-      const faction = this.resources.find(faction => faction.id === this.currentFaction);
-      if (!faction) {
-        return; // current faction not found
       }
 
-      for (const [resource, amount] of resourceList) {
-        const key = Object.keys(faction).find(k => k.toLowerCase() === resource.toLowerCase());
-        if (key) {
-          console.log(faction[key]);
-          faction[key] += amount;
-          console.log(faction[key]);
-        }
-      }
-      console.log(this.resources)
+      axios.put('http://127.0.0.1:8080/putPlayerResources', {
+          id: this.resources
+      })
+          .then(response => {
+              console.log(response)
+          })
+          .catch(error => {
+              console.log(error)
+          });
 
-      // Save updated resources to localStorage or server
-      localStorage.setItem('resourcesData', JSON.stringify(this.resources));
     }
   },
 };
