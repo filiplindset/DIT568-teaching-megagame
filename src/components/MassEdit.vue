@@ -41,17 +41,15 @@ export default {
     incrementResource(resource) {
       const index = this.resourceList.findIndex(([name, value]) => name === resource);
       this.resourceList[index][1]++;
-      console.log(resourceList)
     },
     decrementResource(resource) {
       const index = this.resourceList.findIndex(([name, value]) => name === resource);
       if (this.resourceList[index][1] > 0) {
         this.resourceList[index][1]--;
       }
-      console.log(resourceList)
     },
-    updateResources() {
-      for (var [resource, amount] of resourceList) {
+    async updateResources() {
+      for (var [resource, amount] of this.resourceList) {
         for (const faction of this.resources) {
           for(var [key, value] of Object.entries(faction)){
             if (key.toLowerCase() === resource.toLowerCase()){
@@ -60,27 +58,19 @@ export default {
           }
         }
       }
-
-      // Save updated resources to localStorage or server
-      axios.put('http://localhost:8080/putAllResources', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        data: JSON.stringify(this.resources)
-      })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.text();
-          })
-          .then(data => {
-            console.log(data);
-          })
-          .catch(error => {
-            console.error(error);
-          });
+      console.log('Resources:')
+      console.log(this.resources)
+      // Save updated resources to server
+      try {
+        const response = await axios.put('http://localhost:8080/putAllResources', JSON.stringify(this.resources), {
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        });
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
     }
   },
 };
