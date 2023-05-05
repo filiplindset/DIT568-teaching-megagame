@@ -58,7 +58,7 @@ export default {
         this.resourceList[index][1]--;
       }
     },
-    updateResources() {
+    async updateResources() {
 
       for (var [resource, amount] of this.resourceList) {
         for (const faction of this.resources) {
@@ -74,15 +74,16 @@ export default {
         }
       }
 
-      axios.put('http://127.0.0.1:8080/putPlayerResources', {
-          id: this.resources
-      })
-          .then(response => {
-              console.log(response)
-          })
-          .catch(error => {
-              console.log(error)
-          });
+        try {
+            const response = await axios.put('http://localhost:8080/putPlayerResources', JSON.stringify(this.resources[this.currentFaction]), {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
 
     }
   },

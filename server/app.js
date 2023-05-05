@@ -26,6 +26,7 @@ app.put('/putPlayerResources', (req, res) => {
   const resources = req.body;
   console.log(resources)
   const resourceId = resources.id;
+  //console.log(resourceId)
 
 
   fs.readFile(resourcesJSON, 'utf8', (err, data) => {
