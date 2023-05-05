@@ -2,9 +2,11 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const fs = require('fs');
+const bodyParser = require('body-parser')
+
 
 const corsOptions = {
-  origin: 'http://127.0.0.1:5173'
+  origin: ['http://127.0.0.1:5173', 'http://localhost:5173']
 }
 
 ip = "127.0.0.1";
@@ -13,6 +15,7 @@ const port = 8080;
 const resourcesJSON = __dirname + '/assets/resources.json'
 
 app.use(cors(corsOptions));
+app.use(bodyParser.json());
 
 app.get('/getPlayerResources', (req, res) => {
   console.log("Request received")
@@ -21,7 +24,9 @@ app.get('/getPlayerResources', (req, res) => {
 
 app.put('/putPlayerResources', (req, res) => {
   const resources = req.body;
+  console.log(resources)
   const resourceId = resources.id;
+
 
   fs.readFile(resourcesJSON, 'utf8', (err, data) => {
     if (err) {
