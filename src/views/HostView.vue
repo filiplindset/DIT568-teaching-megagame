@@ -1,21 +1,26 @@
-<script setup lang="ts">
-import HostSidePanel from '../components/HostSidePanel.vue'
-</script>
-
 <template>
-  <div class="container">
-    <host-side-panel class="panel" @change-view="updateView"/>
-    <div class="active-component-wrapper">
-      <component
-          :is="activeView"
-          :isAdmin="true"
-      />
+  <div v-if="showContent">
+    <div class="container">
+      <host-side-panel class="panel" @change-view="updateView"/>
+      <div class="active-component-wrapper">
+        <component :is="activeView" :isAdmin="true" />
+      </div>
     </div>
+  </div>
+  <div v-else>
+    <div class="password-wrapper">
+      <form class=password-form @submit.prevent="submitPassword">
+        <label for="password">Enter password:</label>
+        <input type="password" id="password" v-model="password">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
   </div>
 </template>
 
 <script lang="ts">
-
+import HostSidePanel from '../components/HostSidePanel.vue'
 import Timer from "@/components/Timer.vue";
 import ChooseFactionPage from "@/views/ChooseFactionPage.vue";
 import PlayerView from "@/views/PlayerView.vue";
@@ -26,15 +31,18 @@ const panelWidth = 50;
 
 export default {
   components: {
+    HostSidePanel,
     Timer,
     ChooseFactionPage,
     PlayerView,
     MassEdit,
-    ResetGame
+    ResetGame,
   },
   data() {
     return {
-      activeView: Timer
+      password: '',
+      showContent: false,
+      activeView: Timer,
     }
   },
   methods: {
@@ -57,11 +65,18 @@ export default {
       if (this.activeView === PlayerView) {
         this.isAdmin = true
       }
+    },
+    submitPassword() {
+      if (this.password === 'MHplaySGOD') {
+        this.showContent = true
+      } else {
+        alert('Wrong password, please try again.')
+      }
     }
-  }
-
+  },
 }
 </script>
+
 <style>
 .container {
   display: flex;
@@ -95,8 +110,52 @@ body{
   background-color: ghostwhite;
 }
 
-
 .timer {
   margin-left: 200px; /* Set the left margin to the same width as the side panel */
+}
+
+ .password-wrapper {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+
+.password-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+input[type="password"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+  width: 200px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.content {
+  margin-top: 50px;
+  display: none;
 }
 </style>
