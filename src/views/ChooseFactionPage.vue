@@ -1,7 +1,6 @@
 <template>
     <h1>Please choose your faction to continue:</h1>
     <main id="choosefaction">
-
          <div class="factions">
             <Faction
             v-for="faction in factions"

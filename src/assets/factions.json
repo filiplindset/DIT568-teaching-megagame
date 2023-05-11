@@ -1,6 +1,7 @@
 [
     {
         "id": 0,
+        "password": "BORAbora",
         "name": "Arboreans",
         "color": "orange",
         "info": "The cute little orange people",
@@ -18,6 +19,7 @@
     },
     {
         "id": 1,
+        "password": "mmmmOrange",
         "name": "Orangelons",
         "color": "orange",
         "info": "The cute little orange people",
@@ -35,6 +37,7 @@
     },
     {
         "id": 2,
+        "password": "VlocanoERUption",
         "name": "Novarians",
         "color": "orange",
         "info": "The cute little orange people",
@@ -52,6 +55,7 @@
     },
     {
         "id": 3,
+        "password": "bassWURD",
         "name": "Naxorians",
         "color": "orange",
         "info": "The cute little orange people",
@@ -69,6 +73,7 @@
     },
     {
         "id": 4,
+        "password": "hairyFiSHES",
         "name": "Krell",
         "color": "orange",
         "info": "The cute little orange people",
@@ -86,6 +91,7 @@
     },
     {
         "id": 5,
+        "password": "AdlutPoul",
         "name": "Aquarians",
         "color": "orange",
         "info": "The cute little orange people",
@@ -103,6 +109,7 @@
     },
     {
         "id": 6,
+        "password": "snedsBOLXOR",
         "name": "Xaraxians",
         "color": "orange",
         "info": "The cute little orange people",
@@ -120,6 +127,7 @@
     },
     {
         "id": 7,
+        "password": "CrypTOkING",
         "name": "Eryndorians",
         "color": "orange",
         "info": "The cute little orange people",
@@ -137,6 +145,7 @@
     },
     {
         "id": 8,
+        "password": "AlliancenHURRa",
         "name": "Valtorians",
         "color": "orange",
         "info": "The cute little orange people",
@@ -154,6 +163,7 @@
     },
     {
         "id": 9,
+        "password": "mekATROnIK",
         "name": "Zetians",
         "color": "orange",
         "info": "The cute little orange people",
@@ -171,6 +181,7 @@
     },
     {
         "id": 10,
+        "password": "tesTENGIneer",
         "name": "Tethorians",
         "color": "orange",
         "info": "The cute little orange people",

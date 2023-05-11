@@ -13,6 +13,10 @@
         <img src='src/components/icons/moderation.png' @click="changeView('massEdit')"/>
         <div class="icon-text">Mass edit</div>
       </div>
+      <div class="icon">
+        <img src='src/components/icons/reset.png' @click="changeView('resetGame')"/>
+        <div class="icon-text">Reset Game</div>
+      </div>
     </div>
   </div>
 </template>
