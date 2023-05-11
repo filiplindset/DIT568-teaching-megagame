@@ -15,7 +15,7 @@ const port = 8080;
 const resourcesJSON = __dirname + '/assets/resources.json'
 
 app.use(cors(corsOptions));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 app.get('/getPlayerResources', (req, res) => {
   console.log("Request received")
@@ -24,7 +24,10 @@ app.get('/getPlayerResources', (req, res) => {
 
 app.put('/putPlayerResources', (req, res) => {
   const resources = req.body;
+  console.log(resources)
   const resourceId = resources.id;
+  //console.log(resourceId)
+
 
   fs.readFile(resourcesJSON, 'utf8', (err, data) => {
     if (err) {
@@ -74,6 +77,6 @@ app.put('/putAllResources', (req, res) => {
 });
 
 app.listen(port,ip, () => {
-  console.log('Example app listening on port ${port}')
+  console.log('Example app listening on port ${port}');
   });
 
