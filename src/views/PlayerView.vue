@@ -4,9 +4,11 @@
         <div class="active-component-wrapper">
           <component
               :is="activeView"
-              @redirect-player="switchToResourceView"
+              @redirect-player="enterPassword"
+              @pass-correct="switchToResourceView"
               :resourceList="resources[this.selectedFaction]"
               :currentFaction="this.selectedFaction"
+              :id="this.selectedFaction"
           />
         </div>
     </div>
@@ -17,6 +19,7 @@ import ResourceList from "../components/ResourceList.vue";
 import TeamSelect from "../components/TeamSelect.vue";
 import ChooseFactionPage from "@/views/ChooseFactionPage.vue";
 import resourceList from "@/components/ResourceList.vue";
+import PasswordEntry from "@/components/PasswordEntry.vue"
 import axios from "axios";
 
 
@@ -27,7 +30,8 @@ export default {
     components: {
         ResourceList,
         TeamSelect,
-        ChooseFactionPage
+        ChooseFactionPage,
+        PasswordEntry
     },
 
   data() {
@@ -37,6 +41,12 @@ export default {
           selectedFaction: -1
         }
     },
+  props: {
+      isAdmin: {
+        type: Boolean,
+        default: false
+      }
+  },
   created() {
     axios.get('http://127.0.0.1:8080/getPlayerResources')
         .then(response => {
@@ -48,10 +58,16 @@ export default {
         });
   },
     methods: {
-      switchToResourceView(factionId){
+      enterPassword(factionId){
         this.selectedFaction = factionId
-        console.log("Playerview: " + this.selectedFaction)
-        this.activeView = ResourceList
+        if(this.isAdmin === true) {
+          this.switchToResourceView(factionId);
+          return;
+        }
+        this.activeView = PasswordEntry
+      },
+      switchToResourceView(factionId){
+        this.activeView = ResourceList;
       }
     }
 }

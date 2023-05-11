@@ -6,7 +6,10 @@ import HostSidePanel from '../components/HostSidePanel.vue'
   <div class="container">
     <host-side-panel class="panel" @change-view="updateView"/>
     <div class="active-component-wrapper">
-      <component :is="activeView"></component>
+      <component
+          :is="activeView"
+          :isAdmin="true"
+      />
     </div>
   </div>
 </template>
@@ -17,6 +20,7 @@ import Timer from "@/components/Timer.vue";
 import ChooseFactionPage from "@/views/ChooseFactionPage.vue";
 import PlayerView from "@/views/PlayerView.vue";
 import MassEdit from "@/components/MassEdit.vue";
+import ResetGame from "@/components/ResetGame.vue";
 
 const panelWidth = 50;
 
@@ -25,7 +29,8 @@ export default {
     Timer,
     ChooseFactionPage,
     PlayerView,
-    MassEdit
+    MassEdit,
+    ResetGame
   },
   data() {
     return {
@@ -45,6 +50,12 @@ export default {
         case 'massEdit':
           this.activeView = MassEdit
           break
+        case 'resetGame':
+          this.activeView = ResetGame
+          break
+      }
+      if (this.activeView === PlayerView) {
+        this.isAdmin = true
       }
     }
   }
