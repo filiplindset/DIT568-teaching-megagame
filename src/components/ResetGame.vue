@@ -1,18 +1,22 @@
 <template>
   <div class="center">
+
     <button class="big-red-button" @click="showPopup = true;">
       <div class="btn-text">Reset All Resources</div>
     </button>
+
     <div class="popup" v-if="showPopup">
-      <div class="overlay"/>
-      <div class="content">
-        <p>This will completely reset all the resources for all players. Are you sure you want to continue?</p>
-        <div class="buttons">
-          <button class="cancel-button" @click="showPopup = false">Cancel</button>
-          <button class="proceed-button" @click="resetResources(); showPopup = false">Proceed</button>
+      <div class="overlay">
+        <div class="delete-box">
+          <p>This will completely reset all the resources for all players. Are you sure you want to continue?</p>
+          <div class="buttons">
+            <button class="cancel-button" @click="showPopup = false">Cancel</button>
+            <button class="proceed-button" @click="resetResources(); showPopup = false">Proceed</button>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -105,7 +109,7 @@ export default {
   z-index: 3;
 }
 
-.content {
+.delete-box {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -116,7 +120,6 @@ export default {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   z-index: 4;
   max-width: 90vw; /* new line to limit popup width */
-  display: initial;
 }
 
 .buttons {
