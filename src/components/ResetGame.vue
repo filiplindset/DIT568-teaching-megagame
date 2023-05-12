@@ -1,10 +1,10 @@
 <template>
   <div class="center">
-    <button class="big-red-button" @click="showPopup = true">
+    <button class="big-red-button" @click="showPopup = true;">
       <div class="btn-text">Reset All Resources</div>
     </button>
     <div class="popup" v-if="showPopup">
-      <div class="overlay"></div>
+      <div class="overlay"/>
       <div class="content">
         <p>This will completely reset all the resources for all players. Are you sure you want to continue?</p>
         <div class="buttons">
@@ -116,6 +116,7 @@ export default {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   z-index: 4;
   max-width: 90vw; /* new line to limit popup width */
+  display: initial;
 }
 
 .buttons {
