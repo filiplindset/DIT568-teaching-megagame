@@ -11,7 +11,7 @@
         </div>
       </li>
     </ul>
-    <button @click="updateResources">Update Resources</button>
+    <button @click="updateResources();">Update Resources</button>
   </div>
 </template>
 
@@ -23,10 +23,12 @@ export default {
   data() {
     return {
       resources: {},
-      resourceList: [ ["Money", 0], ["Gems", 0], ["Steel", 0], ["Wood", 0], ["Tech", 0], ["Energy", 0] ]
+      resourceList: [ ["Money", 0], ["Gems", 0], ["Steel", 0], ["Wood", 0], ["Tech", 0], ["Energy", 0] ],
+      lastChangeTime: 0
     };
   },
   created() {
+      /*
     axios.get('http://127.0.0.1:8080/getPlayerResources')
         .then(response => {
           console.log(response.data);
@@ -45,17 +47,22 @@ export default {
         })
         .catch(error => {
           console.log(error);
-        });
+        }); */
+      this.requestData();
   },
   methods: {
     incrementResource(resource) {
+
       const index = this.resourceList.findIndex(([name, value]) => name === resource);
       this.resourceList[index][1]++;
+      this.lastChangeTime = Date.now();
     },
     decrementResource(resource) {
+
       const index = this.resourceList.findIndex(([name, value]) => name === resource);
       if (this.resourceList[index][1] > 0) {
         this.resourceList[index][1]--;
+        this.lastChangeTime = Date.now();
       }
     },
     async updateResources() {
@@ -84,9 +91,36 @@ export default {
         } catch (error) {
             console.error(error);
         }
+        this.lastChangeTime = 0;
+    },
+      async requestData() {
+        const deltaT = Date.now() - this.lastChangeTime;
+        if (deltaT > 3000) {
+            try {
+                const response = await axios.get('http://127.0.0.1:8080/getPlayerResources');
+                console.log(response.data);
+                this.resources = response.data;
+                for (var faction of response.data) {
+                    if (faction.id === this.currentFaction) {
+                        for (var i = 0; i < this.resourceList.length; i++) {
+                            for (var [key, value] of Object.entries(faction)) {
+                                if (this.resourceList[i][0].toLowerCase() === key.toLowerCase()) {
+                                    this.resourceList[i][1] = value;
+                                }
+                            }
+                        }
+                    }
+                }
+                setTimeout(this.requestData, 5000);
+            } catch (error) {
+                console.log("Error fetching data: ", error);
+                setTimeout(this.requestData, 5000);
+            }
+        }
+      },
 
-    }
   },
+
 };
 </script>
 
