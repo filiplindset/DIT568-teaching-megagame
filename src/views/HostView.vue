@@ -42,16 +42,13 @@ export default {
     return {
       password: '',
       showContent: false,
-      activeView: Timer,
+      activeView: PlayerView,
     }
   },
   methods: {
     updateView(viewName) {
       console.log(viewName)
       switch (viewName) {
-        case 'timer':
-          this.activeView = Timer
-          break
         case 'impersonate':
           this.activeView = PlayerView
           break

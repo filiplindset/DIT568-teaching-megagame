@@ -2,11 +2,7 @@
   <div class="side-panel">
     <div class="icon-container">
       <div class="icon">
-        <img src='src/components/icons/timer.png' @click="changeView('timer')"/>
-        <div class="icon-text">Timer</div>
-      </div>
-      <div class="icon">
-        <img src='src/components/icons/moderation.png' @click="changeView('impersonate')"/>
+        <img src='src/components/icons/boxes.png' @click="changeView('impersonate')"/>
         <div class="icon-text">Moderation</div>
       </div>
       <div class="icon">
