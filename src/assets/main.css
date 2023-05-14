@@ -4,14 +4,14 @@ body {
 
 .start-view{
   font-size: 2em;
-  color: aquamarine;
+  color: black;
   font-family: Arial, sans-serif;
 
   text-align: center;
 }
 
 .player-view{
-  color: darkturquoise;
+  color: black;
   font-family: Arial, sans-serif;
   text-align: center;
 }

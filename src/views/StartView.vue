@@ -28,23 +28,28 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction:column ;
+    align-content: flex-end;
+    margin-top: 10rem;
 }
 
 .button {
-    padding: 10px 20px;
+    padding: 30px 40px;
     margin: 10px;
     border-radius: 5px;
     text-decoration: none;
     color: #fff;
     font-weight: bold;
     text-align: center;
+    min-width: 25%;
+    border: 10px black;
 }
 
 .primary {
-    background-color: #007bff;
+    background-color: #27929c;
 }
 
 .secondary {
-    background-color: #6c757d;
+    background-color: #dc9839;
 }
 </style>
