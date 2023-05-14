@@ -1,5 +1,5 @@
 <template>
-    <h1>Please choose your faction to continue:</h1>
+    <h1 class="rubrik3">Please choose your faction to continue:</h1>
     <main id="choosefaction">
          <div class="factions">
             <Faction
@@ -45,7 +45,7 @@ body{
 }
 
 main{
-    background-color: white;
+    background-color: ghostwhite;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,6 +61,7 @@ main{
     grid-gap: 1rem;
     padding: 25px;
     margin: 0 auto;
+    background-color: ghostwhite;
 }
 
 

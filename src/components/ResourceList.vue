@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Available Resources</h2>
+    <h2 class="rubrik2">Available Resources</h2>
     <ul>
       <li v-for="([resource, amount]) in this.resourceList " class="resource-item">
         <span class="resource-name">{{resource}}</span>
@@ -11,7 +11,7 @@
         </div>
       </li>
     </ul>
-    <button @click="updateResources">Update Resources</button>
+    <button class="update" @click="updateResources">Update Resources</button>
   </div>
 </template>
 
@@ -95,15 +95,19 @@ export default {
   display: compact;
   align-items: center;
   margin-bottom: 10px;
+  list-style-type: none;
 }
 
 .resource-name {
   flex-grow: 1;
+  color: black;
+  font-weight: bold;
 }
 
 .resource-controls {
   display: flex;
   margin-left: auto;
+  padding: 15px 15px;
 }
 
 .resource-button {
@@ -131,6 +135,18 @@ export default {
 
 .resource-button:hover {
   background-color: #d9d9d9;
+}
+
+.update{
+  max-width: fit-content;
+  padding: 20px 20px;
+  background-color: #27929c;
+  color: white;
+  font-weight: bold;
+}
+
+.update:hover {
+  background-color: #57b5be;
 }
 
 </style>

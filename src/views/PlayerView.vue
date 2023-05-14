@@ -1,6 +1,6 @@
 <template>
     <div class="player-view">
-        <h1>Player View</h1>
+        <h1 class="rubrik">Player View</h1>
         <div class="active-component-wrapper">
           <component
               :is="activeView"

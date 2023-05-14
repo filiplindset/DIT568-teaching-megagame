@@ -49,7 +49,6 @@ button{
     .faction-inner {
        position: relative;
        padding: 25px;
-       
     }
 
     .faction-image-wrap .image {

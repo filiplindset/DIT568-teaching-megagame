@@ -41,9 +41,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
 h2 {
@@ -61,16 +58,17 @@ input {
 }
 
 .sign-in-button {
-  background-color: #2196f3;
+  background-color: #27929c;
   color: #fff;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  max-width: 6cm;
   transition: background-color 0.3s ease;
 }
 
 .sign-in-button:hover {
-  background-color: #1976d2;
+  background-color: #57b5be;
 }
 </style>

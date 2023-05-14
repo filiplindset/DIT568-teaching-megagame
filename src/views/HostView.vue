@@ -12,7 +12,7 @@
       <form class=password-form @submit.prevent="submitPassword">
         <label for="password">Enter password:</label>
         <input type="password" id="password" v-model="password">
-        <button type="submit">Submit</button>
+        <button type="submit">Sign in</button>
       </form>
     </div>
 
@@ -92,7 +92,7 @@ export default {
   top: 0;
   left: 0;
   z-index: 999;
-  background-color: #f1f1f1;
+  background-color: #e8b369;
   margin: 0;
   padding: 0;
 }
@@ -135,7 +135,7 @@ input[type="password"] {
 
 button[type="submit"] {
   padding: 10px 20px;
-  background-color: #4CAF50;
+  background-color: #dc9839;
   color: white;
   border: none;
   border-radius: 5px;
@@ -143,7 +143,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #3e8e41;
+  background-color: #9f6c24;
 }
 
 .error {

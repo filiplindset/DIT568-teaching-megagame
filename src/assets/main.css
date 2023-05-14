@@ -11,9 +11,9 @@ body {
 }
 
 .player-view{
-  color: darkturquoise;
+  color: black;
   font-family: Arial, sans-serif;
-  text-align: center;
+  text-align:left;
 }
 .resource-list{
   color: darkturquoise;
@@ -39,5 +39,25 @@ body {
   grid-gap: 5px;
   justify-content: center;
   align-items: center;
+
+}
+
+.rubrik{
+  text-align: center;
+}
+
+.rubrik2{
+  color: #27929c;
+
+}
+
+.rubrik3{
+  margin-left: 100px;
+}
+
+.rubrik4{
+  color:#dc9839;
+  padding-left: 5rem;
+  font-weight: bold;
 
 }

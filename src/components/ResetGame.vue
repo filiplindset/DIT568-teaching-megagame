@@ -76,6 +76,7 @@ export default {
 .btn-text {
   color: #f2f2f2;
   vertical-align: auto;
+  padding-top: 5.5rem;
 }
 
 .big-red-button {
