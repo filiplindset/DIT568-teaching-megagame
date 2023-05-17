@@ -8,7 +8,7 @@
                   <h2 class="faction-name">{{ faction.name }}</h2>
 
               </div>
-              <div class="faction-image-wrap">
+              <div class="faction-image-wrap" >
                   <img :src="faction.img" class="image"/>
               </div>
               <div class="faction-info">
@@ -54,6 +54,7 @@ button{
     .faction-image-wrap .image {
         width:100%;
     }
+
 
     .link{
         text-decoration: none;

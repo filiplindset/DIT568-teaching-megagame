@@ -1,6 +1,6 @@
 <template>
     <div class="start-view">
-        <h1>A Teaching Megagame</h1>
+        <h1>Celestial Conquest</h1>
         <p>Get started by choosing one of the options below:</p>
         <div class="button-group">
             <router-link to="/player" class="button primary">Player</router-link>

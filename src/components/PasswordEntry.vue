@@ -40,7 +40,7 @@ export default {
 .name-and-password {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:center;
 }
 
 h2 {

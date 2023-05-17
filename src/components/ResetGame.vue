@@ -80,7 +80,7 @@ export default {
 }
 
 .big-red-button {
-  background-color: red;
+  background-color: rgb(229, 42, 42);
   color: white;
   font-size: 24px;
   padding: 30px 50px;

@@ -4,9 +4,9 @@
         "password": "BORAbora",
         "name": "Arboreans",
         "color": "orange",
-        "info": "The cute little orange people",
+        "info": "The tree-like slow movers",
         "text": "hi there!",
-        "img": "src/assets/images/orangelons.png",
+        "img": "src/assets/images/aboreans.png",
         "resources":[
             {
                 "wood":10,
@@ -22,7 +22,7 @@
         "password": "mmmmOrange",
         "name": "Orangelons",
         "color": "orange",
-        "info": "The cute little orange people",
+        "info": "The cute little orange beings",
         "text": "hi there!",
         "img": "src/assets/images/orangelons.png",
         "resources":[
@@ -40,9 +40,9 @@
         "password": "VlocanoERUption",
         "name": "Novarians",
         "color": "orange",
-        "info": "The cute little orange people",
+        "info": "The advanced cyborgs",
         "text": "hi there!",
-        "img": "src/assets/images/orangelons.png",
+        "img": "src/assets/images/novarians.png",
         "resources":[
             {
                 "wood":10,
